@@ -1,0 +1,15 @@
+wxrecorder
+
+A simple python ( with wxpython ) program to record a wav sound file
+
+It is a cross-platform desktop app.
+
+Requirements:
+
+python 2.6 or 2.7
+
+Python modules:
+	wxpython 2.8.10.1 or +
+	pyaudio
+
+Author: Domingo Aguilera ( twitter: @batok )
