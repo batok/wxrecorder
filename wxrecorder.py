@@ -67,13 +67,15 @@ class MainFrame( wx.Frame ):
 		mb = wx.MenuBar()
 		recording_menu = wx.Menu()
 		mb.Append(recording_menu, "Recording")
-		self.Bind(wx.EVT_CLOSE, self.OnClose)
+		self.Bind(wx.EVT_CLOSE, lambda _: self.Destroy())
 		
 		self.Bind(wx.EVT_MENU, self.OnRecordAudio, recording_menu.Append(-1, "Record audio"))
+		self.Bind(wx.EVT_MENU, self.OnExit, recording_menu.Append(-1, "&Exit"))
 		self.SetMenuBar(mb)	
 
-	def OnClose(self, event):
-		self.Destroy()
+	def OnExit(self, event):
+		self.Close()
+
 		
 	def OnRecordAudio(self,event):
 		RECORD_SECONDS = 15
