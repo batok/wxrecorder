@@ -16,17 +16,12 @@
 #limitations under the License.
 
 import wx
-
 import sys
-
 from threading import Thread
-
 import pyaudio
 import wave
-
 import os
 import subprocess
-
 
 class RecordThread( Thread ):
 	def __init__(self, window, seconds):
@@ -48,15 +43,12 @@ class RecordThread( Thread ):
 		                rate = RATE,
 		                input = True,
 		                frames_per_buffer = chunk)
-
 		rec = []
 		
-
 		for i in range(0, RATE / chunk * RECORD_SECONDS):
 			data = stream.read(chunk)
 			rec.append(data)
 			
-		
 		stream.close()
 		p.terminate()
 		sdata = ''.join(rec)
@@ -77,17 +69,12 @@ class MainFrame( wx.Frame ):
 		mb.Append(recording_menu, "Recording")
 		self.Bind(wx.EVT_CLOSE, self.OnClose)
 		
-		try:
-			pyaudio
-			self.Bind(wx.EVT_MENU, self.OnRecordAudio, recording_menu.Append(-1, "Record audio"))
-		except:
-			pass
+		self.Bind(wx.EVT_MENU, self.OnRecordAudio, recording_menu.Append(-1, "Record audio"))
 		self.SetMenuBar(mb)	
 
 	def OnClose(self, event):
 		self.Destroy()
 		
-	
 	def OnRecordAudio(self,event):
 		RECORD_SECONDS = 15
 		seconds = wx.GetNumberFromUser("Record Seconds", "Recording", "Time", value = RECORD_SECONDS, min = RECORD_SECONDS, max = RECORD_SECONDS + 100)
@@ -126,7 +113,6 @@ class MainFrame( wx.Frame ):
 			wx.MilliSleep( 1000 )
 			dlg.Update(count)
 		dlg.Destroy()
-		
 	
 	
 if __name__ == "__main__":
