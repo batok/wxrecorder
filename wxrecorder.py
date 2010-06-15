@@ -86,6 +86,7 @@ class MainFrame( wx.Frame ):
 		if retCode == wx.ID_YES:
 			if wx.Platform == "__WXMSW__":
 				os.startfile("output.wav")
+				return
 			else:
 				if wx.Platform == "__WXMAC__":
 					command = "open output.wav"
