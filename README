@@ -13,5 +13,6 @@ Python modules:
 	wxpython 2.8.10.1 or + ( download and install from www.wxpython.org )
 	pyaudio ( install with setuptools or distribute's easy_install or with pip )
 
+===========================================
 Author: Domingo Aguilera ( twitter: @batok )
 E-mail: domingo.aguilera@gmail.com
